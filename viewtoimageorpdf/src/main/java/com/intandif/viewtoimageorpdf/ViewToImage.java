@@ -54,7 +54,7 @@ public class ViewToImage {
 
 
     private void convert() {
-        Bitmap bitmap = getBitmapFromView(view, view.getWidth(), view.getHeight());
+        Bitmap bitmap = getBitmapFromView(view);
 
         if (fileName.equals("myFile")) {
             saveTheImage(bitmap, null);
@@ -65,8 +65,8 @@ public class ViewToImage {
 
     }
 
-    private Bitmap getBitmapFromView(View view, int width, int height) {
-        bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+    private Bitmap getBitmapFromView(View view) {
+        bitmap = Bitmap.createBitmap(1080, 1080, Bitmap.Config.ARGB_8888);
         Canvas mCanvas = new Canvas(bitmap);
         view.layout(0, 0, view.getLayoutParams().width, view.getLayoutParams().height);
         view.draw(mCanvas);
